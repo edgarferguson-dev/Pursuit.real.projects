@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-bg: #0b0b0f;
+  --color-surface: #12131a;
+  --color-surface-secondary: #1a1c24;
+  --color-text: #f5f3ee;
+  --color-muted: #b8bdc9;
+  --color-accent: #4d7cfe;
+  --color-warning: #ffb703;
+  --color-escalation: #ff5c57;
+  --color-success: #30d158;
+  --color-border: rgba(245, 243, 238, 0.12);
+  --color-border-strong: rgba(245, 243, 238, 0.22);
+  --focus-ring: 0 0 0 3px rgba(77, 124, 254, 0.55);
+}
+
+@media (prefers-contrast: more) {
+  :root {
+    --color-border: rgba(245, 243, 238, 0.28);
+    --color-border-strong: rgba(245, 243, 238, 0.42);
+    --color-muted: #d1d5de;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  @apply bg-bg text-text font-sans antialiased;
+  background-image:
+    linear-gradient(rgba(245, 243, 238, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(245, 243, 238, 0.03) 1px, transparent 1px);
+  background-size: 48px 48px;
+  background-position: center top;
+}
+
+::selection {
+  background: rgba(77, 124, 254, 0.35);
+  color: var(--color-text);
+}
+
+/* Focus: high visibility, product-grade */
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[role="radio"]:focus-visible {
+  box-shadow: var(--focus-ring);
+}
+
+/* Headings: sharp editorial */
+.font-heading {
+  letter-spacing: -0.03em;
+  font-weight: 600;
+}
